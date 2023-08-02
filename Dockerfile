@@ -18,6 +18,7 @@ COPY . /app/
 
 # Expose the port that the Django development server will be running on (default: 8000)
 EXPOSE 8000
+EXPOSE 5432
 
 # Run the Django development server when the container starts
 CMD ["python", "accu/manage.py", "runserver", "0.0.0.0:8000"]

@@ -20,9 +20,9 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
     environment:
-      - POSTGRES_DB=<your-database-name>
-      - POSTGRES_USER=<your-database-user>
-      - POSTGRES_PASSWORD=<your-database-password>
+      - POSTGRES_DB=accu
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=
 
 
 volumes:
