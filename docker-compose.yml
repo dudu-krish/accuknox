@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  django:
+    image: python:3.11
+    container_name: accu
+    volumes:
+      - .:/app
+    environment:
+      - DJANGO_SECRET_KEY=django-insecure-a7!mi%tb#u-$7m9euznl=^la&u7*a3br=_z^+q=vqn0l$8pukj
+      - DEBUG=True
+      - DJANGO_ALLOWED_HOSTS=*
+    ports:
+      - "8000:8000"
+    command: bash -c "pip install -r requirements.txt && python manage.py runserver 0.0.0.0:8000"
+
+  postgres:
+    image: postgres:latest
+    container_name: postgres_db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=<your-database-name>
+      - POSTGRES_USER=<your-database-user>
+      - POSTGRES_PASSWORD=<your-database-password>
+
+
+volumes:
+  postgres_data:
